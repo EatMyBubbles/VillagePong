@@ -5,17 +5,24 @@ class MainScene: CCNode {
     weak var ball: CCSprite!
     weak var paddle: CCSprite!
     weak var gamePhysicsNode: CCPhysicsNode!
+<<<<<<< HEAD
     weak var zombie: CCSprite!
     
     var width = CCDirector.sharedDirector().viewSize().width
     var height = CCDirector.sharedDirector().viewSize().height
     var mainMenu = true
     var ballInScreen = false
+=======
+    
+    var width = CCDirector.sharedDirector().viewSize().width
+    var height = CCDirector.sharedDirector().viewSize().height
+>>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
     
     func didLoadFromCCB() {
         //multipleTouchEnabled = true
         userInteractionEnabled = true
         gamePhysicsNode.collisionDelegate = self
+<<<<<<< HEAD
         
         animationManager.runAnimationsForSequenceNamed("MainMenu")
     }
@@ -28,16 +35,25 @@ class MainScene: CCNode {
     
     func ballPush() {
         var pushX = CGFloat(arc4random_uniform(201)) - 100
+=======
+    }
+    
+    func ballPush() {
+        var pushX = CGFloat(arc4random_uniform(201) - 100)
+>>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
         var pushY = CGFloat(200)
         
         ball.physicsBody.velocity.x = pushX
         ball.physicsBody.velocity.y = pushY
     }
     
+<<<<<<< HEAD
     func ballTrue() {
         ballInScreen = true
     }
     
+=======
+>>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
     func spawnZombie() {
         var spawnY = CGFloat(0.8 * height)
         var xCoor = CGFloat(arc4random_uniform(3))
@@ -57,6 +73,7 @@ class MainScene: CCNode {
         gamePhysicsNode.addChild(zombie)
     }
     
+<<<<<<< HEAD
     func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, ball: CCNode!, zombie: CCNode!) -> ObjCBool {
         
         
@@ -81,5 +98,17 @@ class MainScene: CCNode {
             var touchX = touch.locationInNode(CCPhysicsNode()!).x
             paddle.positionInPoints.x = touchX
         }
+=======
+    override func update(delta: CCTime) {
+        
+    }
+    
+    override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
+        
+    }
+    
+    override func touchMoved(touch: CCTouch!, withEvent event: CCTouchEvent!) {
+        
+>>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
     }
 }

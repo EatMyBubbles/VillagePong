@@ -60,7 +60,11 @@
 			<key>collisionMask</key>
 			<array/>
 			<key>collisionType</key>
+<<<<<<< HEAD
 			<string>zombie</string>
+=======
+			<string></string>
+>>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
 			<key>cornerRadius</key>
 			<real>0.0</real>
 			<key>density</key>

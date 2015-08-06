@@ -10,7 +10,11 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
+<<<<<<< HEAD
 	<integer>3</integer>
+=======
+	<integer>1</integer>
+>>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -38,6 +42,7 @@
 		<key>baseClass</key>
 		<string>CCSprite</string>
 		<key>children</key>
+<<<<<<< HEAD
 		<array>
 			<dict>
 				<key>UUID</key>
@@ -329,6 +334,9 @@
 				<true/>
 			</dict>
 		</array>
+=======
+		<array/>
+>>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
 		<key>customClass</key>
 		<string>Ball</string>
 		<key>displayName</key>
@@ -350,7 +358,11 @@
 			<key>collisionMask</key>
 			<array/>
 			<key>collisionType</key>
+<<<<<<< HEAD
 			<string>ball</string>
+=======
+			<string></string>
+>>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
 			<key>cornerRadius</key>
 			<real>75</real>
 			<key>density</key>
@@ -360,7 +372,11 @@
 			<key>elasticity</key>
 			<real>1</real>
 			<key>friction</key>
+<<<<<<< HEAD
 			<real>0.0</real>
+=======
+			<real>0.30000001192092896</real>
+>>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
 			<key>points</key>
 			<array>
 				<array>
@@ -463,6 +479,11 @@
 				<array/>
 			</dict>
 		</array>
+<<<<<<< HEAD
+=======
+		<key>selected</key>
+		<true/>
+>>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
 	</dict>
 	<key>notes</key>
 	<array/>
