@@ -60,11 +60,7 @@
 			<key>collisionMask</key>
 			<array/>
 			<key>collisionType</key>
-<<<<<<< HEAD
 			<string>paddle</string>
-=======
-			<string></string>
->>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
 			<key>cornerRadius</key>
 			<real>0.0</real>
 			<key>density</key>
@@ -72,15 +68,9 @@
 			<key>dynamic</key>
 			<false/>
 			<key>elasticity</key>
-<<<<<<< HEAD
 			<real>1</real>
 			<key>friction</key>
 			<real>0.0</real>
-=======
-			<real>0.0</real>
-			<key>friction</key>
-			<real>0.30000001192092896</real>
->>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
 			<key>points</key>
 			<array>
 				<array>
@@ -92,7 +82,6 @@
 					<real>35.069183349609375</real>
 				</array>
 				<array>
-<<<<<<< HEAD
 					<real>37.175716400146484</real>
 					<real>36.481597900390625</real>
 				</array>
@@ -117,8 +106,6 @@
 					<real>36.845710754394531</real>
 				</array>
 				<array>
-=======
->>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
 					<real>124.62115478515625</real>
 					<real>35.069183349609375</real>
 				</array>
@@ -139,7 +126,6 @@
 						<real>35.069183349609375</real>
 					</array>
 					<array>
-<<<<<<< HEAD
 						<real>114.39193725585938</real>
 						<real>36.845710754394531</real>
 					</array>
@@ -164,8 +150,6 @@
 						<real>36.481597900390625</real>
 					</array>
 					<array>
-=======
->>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
 						<real>25.746450424194336</real>
 						<real>35.069183349609375</real>
 					</array>

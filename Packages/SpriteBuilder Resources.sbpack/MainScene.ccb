@@ -10,21 +10,13 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-<<<<<<< HEAD
-	<integer>26</integer>
-=======
-	<integer>24</integer>
->>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
+	<integer>27</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
 	<integer>0</integer>
 	<key>currentSequenceId</key>
-<<<<<<< HEAD
 	<integer>2</integer>
-=======
-	<integer>0</integer>
->>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
 	<key>docDimensionsType</key>
 	<integer>0</integer>
 	<key>fileType</key>
@@ -132,15 +124,9 @@
 						<string>Color3</string>
 						<key>value</key>
 						<array>
-<<<<<<< HEAD
 							<real>0.33454114198684692</real>
 							<real>0.61751151084899902</real>
 							<real>0.24171288311481476</real>
-=======
-							<real>0.2367289662361145</real>
-							<real>0.47476238012313843</real>
-							<real>0.19564522802829742</real>
->>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
 							<real>1</real>
 						</array>
 					</dict>
@@ -164,7 +150,6 @@
 					<dict>
 						<key>UUID</key>
 						<integer>6</integer>
-<<<<<<< HEAD
 						<key>animatedProperties</key>
 						<dict>
 							<key>2</key>
@@ -217,8 +202,6 @@
 								</dict>
 							</dict>
 						</dict>
-=======
->>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
 						<key>baseClass</key>
 						<string>CCBFile</string>
 						<key>children</key>
@@ -242,14 +225,11 @@
 								<string></string>
 							</dict>
 							<dict>
-<<<<<<< HEAD
 								<key>baseValue</key>
 								<array>
 									<real>-0.25</real>
 									<real>0.11999999731779099</real>
 								</array>
-=======
->>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
 								<key>name</key>
 								<string>position</string>
 								<key>type</key>
@@ -285,11 +265,8 @@
 								<string>Paddle.ccb</string>
 							</dict>
 						</array>
-<<<<<<< HEAD
 						<key>seqExpanded</key>
 						<true/>
-=======
->>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
 					</dict>
 					<dict>
 						<key>UUID</key>
@@ -327,7 +304,6 @@
 							<key>dynamic</key>
 							<false/>
 							<key>elasticity</key>
-<<<<<<< HEAD
 							<real>1</real>
 							<key>friction</key>
 							<real>0.0</real>
@@ -347,27 +323,6 @@
 								</array>
 								<array>
 									<real>153.73045349121094</real>
-=======
-							<real>0.30000001192092896</real>
-							<key>friction</key>
-							<real>0.30000001192092896</real>
-							<key>points</key>
-							<array>
-								<array>
-									<real>-0.40902209281921387</real>
-									<real>16.079841613769531</real>
-								</array>
-								<array>
-									<real>0.0</real>
-									<real>148</real>
-								</array>
-								<array>
-									<real>125</real>
-									<real>148</real>
-								</array>
-								<array>
-									<real>125</real>
->>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
 									<real>16.079841613769531</real>
 								</array>
 							</array>
@@ -375,7 +330,6 @@
 							<array>
 								<array>
 									<array>
-<<<<<<< HEAD
 										<real>153.73045349121094</real>
 										<real>16.079841613769531</real>
 									</array>
@@ -389,21 +343,6 @@
 									</array>
 									<array>
 										<real>-28.821887969970703</real>
-=======
-										<real>125</real>
-										<real>16.079841613769531</real>
-									</array>
-									<array>
-										<real>125</real>
-										<real>148</real>
-									</array>
-									<array>
-										<real>0.0</real>
-										<real>148</real>
-									</array>
-									<array>
-										<real>-0.40902209281921387</real>
->>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
 										<real>16.079841613769531</real>
 									</array>
 								</array>
@@ -538,15 +477,9 @@
 							<key>dynamic</key>
 							<false/>
 							<key>elasticity</key>
-<<<<<<< HEAD
 							<real>1</real>
 							<key>friction</key>
 							<real>0.0</real>
-=======
-							<real>0.30000001192092896</real>
-							<key>friction</key>
-							<real>0.30000001192092896</real>
->>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
 							<key>points</key>
 							<array>
 								<array>
@@ -717,7 +650,6 @@
 							<key>dynamic</key>
 							<false/>
 							<key>elasticity</key>
-<<<<<<< HEAD
 							<real>1</real>
 							<key>friction</key>
 							<real>0.0</real>
@@ -737,27 +669,6 @@
 								</array>
 								<array>
 									<real>152.73202514648438</real>
-=======
-							<real>0.30000001192092896</real>
-							<key>friction</key>
-							<real>0.30000001192092896</real>
-							<key>points</key>
-							<array>
-								<array>
-									<real>0.0</real>
-									<real>15.542173385620117</real>
-								</array>
-								<array>
-									<real>0.0</real>
-									<real>148</real>
-								</array>
-								<array>
-									<real>125</real>
-									<real>148</real>
-								</array>
-								<array>
-									<real>125</real>
->>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
 									<real>15.542173385620117</real>
 								</array>
 							</array>
@@ -765,7 +676,6 @@
 							<array>
 								<array>
 									<array>
-<<<<<<< HEAD
 										<real>152.73202514648438</real>
 										<real>15.542173385620117</real>
 									</array>
@@ -779,21 +689,6 @@
 									</array>
 									<array>
 										<real>-28.013294219970703</real>
-=======
-										<real>125</real>
-										<real>15.542173385620117</real>
-									</array>
-									<array>
-										<real>125</real>
-										<real>148</real>
-									</array>
-									<array>
-										<real>0.0</real>
-										<real>148</real>
-									</array>
-									<array>
-										<real>0.0</real>
->>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
 										<real>15.542173385620117</real>
 									</array>
 								</array>
@@ -925,11 +820,7 @@
 								<key>value</key>
 								<array>
 									<real>0.5</real>
-<<<<<<< HEAD
 									<real>-0.05000000074505806</real>
-=======
-									<real>0.25</real>
->>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
 									<integer>0</integer>
 									<integer>2</integer>
 									<integer>2</integer>
@@ -994,15 +885,9 @@
 							<key>dynamic</key>
 							<false/>
 							<key>elasticity</key>
-<<<<<<< HEAD
 							<real>1</real>
 							<key>friction</key>
 							<real>0.0</real>
-=======
-							<real>0.30000001192092896</real>
-							<key>friction</key>
-							<real>0.30000001192092896</real>
->>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
 							<key>points</key>
 							<array>
 								<array>
@@ -1173,15 +1058,9 @@
 							<key>dynamic</key>
 							<false/>
 							<key>elasticity</key>
-<<<<<<< HEAD
 							<real>1</real>
 							<key>friction</key>
 							<real>0.0</real>
-=======
-							<real>0.30000001192092896</real>
-							<key>friction</key>
-							<real>0.30000001192092896</real>
->>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
 							<key>points</key>
 							<array>
 								<array>
@@ -1406,7 +1285,6 @@
 						<real>0.5</real>
 					</dict>
 				</array>
-<<<<<<< HEAD
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -2189,42 +2067,6 @@ Ville</string>
 					<integer>0</integer>
 					<integer>0</integer>
 					<integer>0</integer>
-=======
-				<key>selected</key>
-				<true/>
-			</dict>
-		</array>
-		<key>customClass</key>
-		<string>MainScene</string>
-		<key>displayName</key>
-		<string>CCNode</string>
-		<key>memberVarAssignmentName</key>
-		<string></string>
-		<key>memberVarAssignmentType</key>
-		<integer>1</integer>
-		<key>properties</key>
-		<array>
-			<dict>
-				<key>name</key>
-				<string>name</string>
-				<key>type</key>
-				<string>StringSimple</string>
-				<key>value</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>name</key>
-				<string>position</string>
-				<key>type</key>
-				<string>Position</string>
-				<key>value</key>
-				<array>
-					<real>0.0</real>
-					<real>0.0</real>
-					<integer>0</integer>
-					<integer>0</integer>
-					<integer>0</integer>
->>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
 				</array>
 			</dict>
 			<dict>
@@ -2351,7 +2193,6 @@ Ville</string>
 				<integer>10</integer>
 			</dict>
 		</dict>
-<<<<<<< HEAD
 		<dict>
 			<key>autoPlay</key>
 			<false/>
@@ -2441,8 +2282,6 @@ Ville</string>
 				<integer>11</integer>
 			</dict>
 		</dict>
-=======
->>>>>>> a2549433925b7b5b6d9172538b9e8efcf77b2ec6
 	</array>
 	<key>stageBorder</key>
 	<integer>0</integer>
