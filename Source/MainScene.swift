@@ -5,6 +5,7 @@ class MainScene: CCNode {
     weak var ball: CCSprite!
     weak var paddle: CCSprite!
     weak var gamePhysicsNode: CCPhysicsNode!
+    weak var zombie: CCSprite!
     
     var width = CCDirector.sharedDirector().viewSize().width
     var height = CCDirector.sharedDirector().viewSize().height
@@ -54,6 +55,12 @@ class MainScene: CCNode {
         zombie.position.y = spawnY
         
         gamePhysicsNode.addChild(zombie)
+    }
+    
+    func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, ball: CCNode!, zombie: CCNode!) -> ObjCBool {
+        
+        
+        return false
     }
     
     override func update(delta: CCTime) {

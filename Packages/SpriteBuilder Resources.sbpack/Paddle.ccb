@@ -60,7 +60,7 @@
 			<key>collisionMask</key>
 			<array/>
 			<key>collisionType</key>
-			<string></string>
+			<string>paddle</string>
 			<key>cornerRadius</key>
 			<real>0.0</real>
 			<key>density</key>
@@ -82,6 +82,30 @@
 					<real>35.069183349609375</real>
 				</array>
 				<array>
+					<real>37.175716400146484</real>
+					<real>36.481597900390625</real>
+				</array>
+				<array>
+					<real>53.298133850097656</real>
+					<real>37.522701263427734</real>
+				</array>
+				<array>
+					<real>69.476142883300781</real>
+					<real>38.249839782714844</real>
+				</array>
+				<array>
+					<real>82.433822631835938</real>
+					<real>38.249839782714844</real>
+				</array>
+				<array>
+					<real>98.096183776855469</real>
+					<real>37.649162292480469</real>
+				</array>
+				<array>
+					<real>114.39193725585938</real>
+					<real>36.845710754394531</real>
+				</array>
+				<array>
 					<real>124.62115478515625</real>
 					<real>35.069183349609375</real>
 				</array>
@@ -100,6 +124,30 @@
 					<array>
 						<real>124.62115478515625</real>
 						<real>35.069183349609375</real>
+					</array>
+					<array>
+						<real>114.39193725585938</real>
+						<real>36.845710754394531</real>
+					</array>
+					<array>
+						<real>98.096183776855469</real>
+						<real>37.649162292480469</real>
+					</array>
+					<array>
+						<real>82.433822631835938</real>
+						<real>38.249839782714844</real>
+					</array>
+					<array>
+						<real>69.476142883300781</real>
+						<real>38.249839782714844</real>
+					</array>
+					<array>
+						<real>53.298133850097656</real>
+						<real>37.522701263427734</real>
+					</array>
+					<array>
+						<real>37.175716400146484</real>
+						<real>36.481597900390625</real>
 					</array>
 					<array>
 						<real>25.746450424194336</real>
