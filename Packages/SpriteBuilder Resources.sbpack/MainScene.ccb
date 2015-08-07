@@ -2243,12 +2243,28 @@ Ville</string>
 							<integer>0</integer>
 						</dict>
 						<key>time</key>
-						<real>1</real>
+						<real>0.96666663885116577</real>
 						<key>type</key>
 						<integer>12</integer>
 						<key>value</key>
 						<array>
 							<string>ballTrue</string>
+							<integer>1</integer>
+						</array>
+					</dict>
+					<dict>
+						<key>easing</key>
+						<dict>
+							<key>type</key>
+							<integer>0</integer>
+						</dict>
+						<key>time</key>
+						<real>1</real>
+						<key>type</key>
+						<integer>12</integer>
+						<key>value</key>
+						<array>
+							<string>spawnZombieTimer</string>
 							<integer>1</integer>
 						</array>
 					</dict>

@@ -325,8 +325,6 @@
 						<string>ccbResources/ccbParticleFire.png</string>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
@@ -360,7 +358,7 @@
 			<key>elasticity</key>
 			<real>1</real>
 			<key>friction</key>
-			<real>0.0</real>
+			<real>1</real>
 			<key>points</key>
 			<array>
 				<array>
@@ -463,6 +461,8 @@
 				<array/>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
