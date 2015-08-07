@@ -5,12 +5,14 @@ class MainScene: CCNode {
     weak var ball: CCSprite!
     weak var paddle: CCSprite!
     weak var gamePhysicsNode: CCPhysicsNode!
-    weak var zombie: CCSprite!
+//    weak var zombie: CCSprite!
+    weak var zombies: CCNode!
     
     var width = CCDirector.sharedDirector().viewSize().width
     var height = CCDirector.sharedDirector().viewSize().height
     var mainMenu = true
     var ballInScreen = false
+    var randomSpawn = CGFloat(1)
     
     func didLoadFromCCB() {
         //multipleTouchEnabled = true
@@ -22,8 +24,8 @@ class MainScene: CCNode {
     
     func play() {
         animationManager.runAnimationsForSequenceNamed("GameStart")
-        ballPush()
         mainMenu = false
+        ballPush()
     }
     
     func ballPush() {
@@ -55,7 +57,7 @@ class MainScene: CCNode {
         }
         zombie.position.y = spawnY
         
-        gamePhysicsNode.addChild(zombie)
+        zombies.addChild(zombie)
         
         if xSpeed == 0 {
             zombie.physicsBody.velocity.x = 5
@@ -66,9 +68,9 @@ class MainScene: CCNode {
         zombie.physicsBody.velocity.y = -10
     }
     
-    func spawnZombieTimer() {
-        schedule("spawnZombie", interval: 1)
-    }
+//    func spawnZombieTimer() {
+//        schedule("spawnZombie", interval: 1)
+//    }
     
     func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, ball: CCNode!, zombie: CCNode!) -> ObjCBool {
         zombie.removeFromParent()
@@ -81,9 +83,29 @@ class MainScene: CCNode {
         return false
     }
     
+    func gameOver() {
+        animationManager.runAnimationsForSequenceNamed("GameOver")
+//        mainMenu = true
+        ballInScreen = false
+        }
+    
+    func restart() {
+        zombies.removeAllChildren()
+        animationManager.runAnimationsForSequenceNamed("Restart")
+
+        ballPush()
+        mainMenu = false
+    }
+    
     override func update(delta: CCTime) {
         if ball.position.y < 0 && ballInScreen == true {
+            gameOver()
             println("GameOver")
+        }
+        
+        var interval = CGFloat(arc4random_uniform(100))
+        if interval <= randomSpawn && mainMenu == false {
+            spawnZombie()
         }
     }
     
