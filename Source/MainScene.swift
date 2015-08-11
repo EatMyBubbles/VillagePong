@@ -7,17 +7,28 @@ class MainScene: CCNode {
     weak var gamePhysicsNode: CCPhysicsNode!
 //    weak var zombie: CCSprite!
     weak var zombies: CCNode!
+    weak var scoreLabel: CCLabelTTF!
+    weak var gameOverScoreLabel: CCLabelTTF!
+    weak var highscoreLabel: CCLabelTTF!
     
     var width = CCDirector.sharedDirector().viewSize().width
     var height = CCDirector.sharedDirector().viewSize().height
     var mainMenu = true
     var ballInScreen = false
-    var randomSpawn = CGFloat(1)
+    var zombieEnd = false
+    var randomSpawn = CGFloat(3)
+    var hundredScore = 0
+    var score: Int = 0 {
+        didSet {
+            scoreLabel.string = "\(score)"
+        }
+    }
     
     func didLoadFromCCB() {
         //multipleTouchEnabled = true
         userInteractionEnabled = true
         gamePhysicsNode.collisionDelegate = self
+//        gamePhysicsNode.debugDraw = true
         
         animationManager.runAnimationsForSequenceNamed("MainMenu")
     }
@@ -74,6 +85,8 @@ class MainScene: CCNode {
     
     func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, ball: CCNode!, zombie: CCNode!) -> ObjCBool {
         zombie.removeFromParent()
+        score++
+        hundredScore++
         
         return false
     }
@@ -83,10 +96,35 @@ class MainScene: CCNode {
         return false
     }
     
+    func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, zombie: CCNode!, invisibleWall: CCNode!) -> ObjCBool {
+        if ballInScreen == true {
+            scheduleOnce("gameOver", delay: 0.2)
+        }
+        
+        return false
+    }
+    
+    func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, ball: CCNode!, invisibleWall: CCNode!) -> ObjCBool {
+        
+        return false
+    }
+    
     func gameOver() {
         animationManager.runAnimationsForSequenceNamed("GameOver")
 //        mainMenu = true
         ballInScreen = false
+        gameOverScoreLabel.string = "\(score)"
+        
+        //highscore code
+        let defaults = NSUserDefaults.standardUserDefaults()
+        var highscore = defaults.integerForKey("highscore")
+        if score > highscore {
+            defaults.setInteger(score, forKey: "highscore")
+        }
+        
+        //set highscore
+        var newHighscore = NSUserDefaults.standardUserDefaults().integerForKey("highscore")
+        highscoreLabel.string = "\(newHighscore)"
         }
     
     func restart() {
@@ -95,6 +133,9 @@ class MainScene: CCNode {
 
         ballPush()
         mainMenu = false
+        hundredScore = 0
+        score = 0
+        randomSpawn = 3
     }
     
     override func update(delta: CCTime) {
@@ -107,17 +148,23 @@ class MainScene: CCNode {
         if interval <= randomSpawn && mainMenu == false {
             spawnZombie()
         }
+        if hundredScore == 25 {
+            hundredScore = 0
+            randomSpawn++
+        }
+//        println(hundredScore)
+//        println(randomSpawn)
     }
     
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
-        if mainMenu == false {
+        if mainMenu == false && ballInScreen == true {
             var touchX = touch.locationInNode(CCPhysicsNode()!).x
             paddle.positionInPoints.x = touchX
         }
     }
     
     override func touchMoved(touch: CCTouch!, withEvent event: CCTouchEvent!) {
-        if mainMenu == false {
+        if mainMenu == false && ballInScreen == true {
             var touchX = touch.locationInNode(CCPhysicsNode()!).x
             paddle.positionInPoints.x = touchX
         }
