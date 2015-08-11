@@ -16,7 +16,7 @@
 	<key>currentResolution</key>
 	<integer>0</integer>
 	<key>currentSequenceId</key>
-	<integer>4</integer>
+	<integer>3</integer>
 	<key>docDimensionsType</key>
 	<integer>0</integer>
 	<key>fileType</key>
@@ -285,7 +285,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>0.5</real>
+									<real>-0.25</real>
 									<real>0.11999999731779099</real>
 									<integer>0</integer>
 									<integer>2</integer>
@@ -1010,7 +1010,7 @@
 								<key>value</key>
 								<array>
 									<real>3</real>
-									<real>2</real>
+									<real>2.1500000953674316</real>
 									<false/>
 									<integer>0</integer>
 								</array>
@@ -1159,7 +1159,7 @@
 								<array>
 									<real>-0.125</real>
 									<real>0.0</real>
-									<integer>3</integer>
+									<integer>2</integer>
 									<integer>2</integer>
 									<integer>2</integer>
 								</array>
@@ -1172,7 +1172,7 @@
 								<key>value</key>
 								<array>
 									<real>1</real>
-									<real>0.0</real>
+									<real>1</real>
 								</array>
 							</dict>
 							<dict>
@@ -1183,7 +1183,7 @@
 								<key>value</key>
 								<array>
 									<real>3</real>
-									<real>2</real>
+									<real>2.1500000953674316</real>
 									<false/>
 									<integer>0</integer>
 								</array>
@@ -1342,7 +1342,7 @@
 								<key>value</key>
 								<array>
 									<real>0.0</real>
-									<real>0.59366220235824585</real>
+									<real>-0.10000000149011612</real>
 									<integer>0</integer>
 									<integer>2</integer>
 									<integer>2</integer>
@@ -1407,8 +1407,6 @@
 								<real>1</real>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
@@ -3314,8 +3312,7 @@ Ville</string>
 								<string>Text</string>
 								<key>value</key>
 								<array>
-									<string>Game
-Over</string>
+									<string>Infected</string>
 									<false/>
 								</array>
 							</dict>
@@ -3325,7 +3322,7 @@ Over</string>
 								<key>type</key>
 								<string>FontTTF</string>
 								<key>value</key>
-								<string>MarkerFelt-Wide</string>
+								<string>assets/MetalMacabre.ttf</string>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -3451,6 +3448,8 @@ Over</string>
 								</array>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 						<key>seqExpanded</key>
 						<true/>
 					</dict>
@@ -3486,7 +3485,7 @@ Over</string>
 						<key>value</key>
 						<array>
 							<real>0.5</real>
-							<real>1.5</real>
+							<real>0.5</real>
 							<integer>0</integer>
 							<integer>2</integer>
 							<integer>2</integer>
@@ -4228,7 +4227,7 @@ Over</string>
 						<key>value</key>
 						<array>
 							<real>0.0</real>
-							<real>-1</real>
+							<real>0.0</real>
 							<integer>0</integer>
 							<integer>2</integer>
 							<integer>2</integer>

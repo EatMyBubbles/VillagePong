@@ -31,12 +31,15 @@ class MainScene: CCNode {
 //        gamePhysicsNode.debugDraw = true
         
         animationManager.runAnimationsForSequenceNamed("MainMenu")
+        
     }
     
     func play() {
         animationManager.runAnimationsForSequenceNamed("GameStart")
         mainMenu = false
         ballPush()
+        
+        iAdHandler.sharedInstance.displayBannerAd()
     }
     
     func ballPush() {
@@ -125,6 +128,8 @@ class MainScene: CCNode {
         //set highscore
         var newHighscore = NSUserDefaults.standardUserDefaults().integerForKey("highscore")
         highscoreLabel.string = "\(newHighscore)"
+        
+//        iAdHandler.sharedInstance.displayInterstitialAd()
         }
     
     func restart() {
@@ -136,6 +141,12 @@ class MainScene: CCNode {
         hundredScore = 0
         score = 0
         randomSpawn = 3
+    }
+    
+    override func onEnter() {
+        super.onEnter()
+        iAdHandler.sharedInstance.loadAds(bannerPosition: .Top)
+        iAdHandler.sharedInstance.loadInterstitialAd()
     }
     
     override func update(delta: CCTime) {
