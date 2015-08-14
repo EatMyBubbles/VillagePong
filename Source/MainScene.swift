@@ -248,7 +248,11 @@ class MainScene: CCNode {
         //ball particle thingy code - CRUNCH TIME
         var velX = ball.physicsBody.velocity.x
         var velY = ball.physicsBody.velocity.y
+        var theta = atan2(velX, velY)
+        var degrees = (Double (theta) / Double(M_PI)) * 180
+        var rotate = degrees + 180
         
+        ball.rotation = Float(rotate)
         
     }
     
