@@ -33,6 +33,8 @@ class MainScene: CCNode {
         }
     }
     
+    //OALSimpleAudio for sound
+    
     func didLoadFromCCB() {
 //        multipleTouchEnabled = true
         userInteractionEnabled = true
