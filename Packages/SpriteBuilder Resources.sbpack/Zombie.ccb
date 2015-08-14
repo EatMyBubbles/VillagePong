@@ -35,6 +35,94 @@
 	<false/>
 	<key>nodeGraph</key>
 	<dict>
+		<key>animatedProperties</key>
+		<dict>
+			<key>0</key>
+			<dict>
+				<key>spriteFrame</key>
+				<dict>
+					<key>keyframes</key>
+					<array>
+						<dict>
+							<key>easing</key>
+							<dict>
+								<key>type</key>
+								<integer>0</integer>
+							</dict>
+							<key>name</key>
+							<string>spriteFrame</string>
+							<key>time</key>
+							<real>0.0</real>
+							<key>type</key>
+							<integer>7</integer>
+							<key>value</key>
+							<array>
+								<string>assets/zombie2(#1).png</string>
+								<string>Use regular file</string>
+							</array>
+						</dict>
+						<dict>
+							<key>easing</key>
+							<dict>
+								<key>type</key>
+								<integer>0</integer>
+							</dict>
+							<key>name</key>
+							<string>spriteFrame</string>
+							<key>time</key>
+							<real>0.3333333432674408</real>
+							<key>type</key>
+							<integer>7</integer>
+							<key>value</key>
+							<array>
+								<string>assets/zombie2(#2).png</string>
+								<string>Use regular file</string>
+							</array>
+						</dict>
+						<dict>
+							<key>easing</key>
+							<dict>
+								<key>type</key>
+								<integer>0</integer>
+							</dict>
+							<key>name</key>
+							<string>spriteFrame</string>
+							<key>time</key>
+							<real>0.66666668653488159</real>
+							<key>type</key>
+							<integer>7</integer>
+							<key>value</key>
+							<array>
+								<string>assets/zombie2(#3).png</string>
+								<string>Use regular file</string>
+							</array>
+						</dict>
+						<dict>
+							<key>easing</key>
+							<dict>
+								<key>type</key>
+								<integer>0</integer>
+							</dict>
+							<key>name</key>
+							<string>spriteFrame</string>
+							<key>time</key>
+							<real>1</real>
+							<key>type</key>
+							<integer>7</integer>
+							<key>value</key>
+							<array>
+								<string>assets/zombie2(#2).png</string>
+								<string>Use regular file</string>
+							</array>
+						</dict>
+					</array>
+					<key>name</key>
+					<string>spriteFrame</string>
+					<key>type</key>
+					<integer>7</integer>
+				</dict>
+			</dict>
+		</dict>
 		<key>baseClass</key>
 		<string>CCSprite</string>
 		<key>children</key>
@@ -74,19 +162,19 @@
 			<key>points</key>
 			<array>
 				<array>
-					<real>0.0</real>
+					<real>28.9140625</real>
 					<real>0.0</real>
 				</array>
 				<array>
-					<real>0.0</real>
-					<real>24</real>
+					<real>28.9140625</real>
+					<real>251.59378051757812</real>
 				</array>
 				<array>
-					<real>13</real>
-					<real>24</real>
+					<real>164.0234375</real>
+					<real>251.59378051757812</real>
 				</array>
 				<array>
-					<real>13</real>
+					<real>164.0234375</real>
 					<real>0.0</real>
 				</array>
 			</array>
@@ -94,19 +182,19 @@
 			<array>
 				<array>
 					<array>
-						<real>13</real>
+						<real>164.0234375</real>
 						<real>0.0</real>
 					</array>
 					<array>
-						<real>13</real>
-						<real>24</real>
+						<real>164.0234375</real>
+						<real>251.59378051757812</real>
 					</array>
 					<array>
-						<real>0.0</real>
-						<real>24</real>
+						<real>28.9140625</real>
+						<real>251.59378051757812</real>
 					</array>
 					<array>
-						<real>0.0</real>
+						<real>28.9140625</real>
 						<real>0.0</real>
 					</array>
 				</array>
@@ -161,6 +249,11 @@
 				</array>
 			</dict>
 			<dict>
+				<key>baseValue</key>
+				<array>
+					<string>assets/zombie2(#1).png</string>
+					<string>Use regular file</string>
+				</array>
 				<key>name</key>
 				<string>spriteFrame</string>
 				<key>type</key>
@@ -168,7 +261,7 @@
 				<key>value</key>
 				<array>
 					<string></string>
-					<string>assets/scrappyZombie.png</string>
+					<string>assets/zombie2(#2).png</string>
 				</array>
 			</dict>
 			<dict>
@@ -204,7 +297,7 @@
 				<array/>
 			</dict>
 		</array>
-		<key>selected</key>
+		<key>seqExpanded</key>
 		<true/>
 	</dict>
 	<key>notes</key>
@@ -253,15 +346,15 @@
 				<integer>12</integer>
 			</dict>
 			<key>chainedSequenceId</key>
-			<integer>-1</integer>
+			<integer>0</integer>
 			<key>length</key>
-			<real>10</real>
+			<real>1.3333333730697632</real>
 			<key>name</key>
 			<string>Default Timeline</string>
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>0.0</real>
+			<real>0.93333333730697632</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

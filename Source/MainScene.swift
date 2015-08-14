@@ -1,4 +1,5 @@
 import Foundation
+import GameKit
 
 class MainScene: CCNode {
     
@@ -8,6 +9,7 @@ class MainScene: CCNode {
 //    weak var zombie: CCSprite!
     weak var zombies: CCNode!
     weak var scoreLabel: CCLabelTTF!
+    weak var comboLabel: CCLabelTTF!
     weak var gameOverScoreLabel: CCLabelTTF!
     weak var highscoreLabel: CCLabelTTF!
     
@@ -16,26 +18,45 @@ class MainScene: CCNode {
     var mainMenu = true
     var ballInScreen = false
     var zombieEnd = false
+    var buttonPressed = true
     var randomSpawn = CGFloat(3)
     var hundredScore = 0
+    var interstitialAd = 3
     var score: Int = 0 {
         didSet {
             scoreLabel.string = "\(score)"
         }
     }
+    var combo: Int = 0 {
+        didSet {
+            comboLabel.string = "x\(combo)"
+        }
+    }
     
     func didLoadFromCCB() {
-        //multipleTouchEnabled = true
+//        multipleTouchEnabled = true
         userInteractionEnabled = true
         gamePhysicsNode.collisionDelegate = self
 //        gamePhysicsNode.debugDraw = true
         
         animationManager.runAnimationsForSequenceNamed("MainMenu")
-        
+        setUpGameCenter()
+    }
+    
+    func setUpGameCenter() {
+        let gameCenterInteractor = GameCenterInteractor.sharedInstance
+        gameCenterInteractor.authenticationCheck()
+    }
+    
+    func openGameCenter() { //button for leaderboards - NEEDS IMPLEMENTING
+        showLeaderboard()
     }
     
     func play() {
-        animationManager.runAnimationsForSequenceNamed("GameStart")
+        if buttonPressed == true{
+            animationManager.runAnimationsForSequenceNamed("GameStart")
+            buttonPressed = false
+        }
         mainMenu = false
         ballPush()
         
@@ -70,6 +91,7 @@ class MainScene: CCNode {
             zombie.position.x = 0.8 * width
         }
         zombie.position.y = spawnY
+        zombie.scale = 0.1
         
         zombies.addChild(zombie)
         
@@ -90,6 +112,7 @@ class MainScene: CCNode {
         zombie.removeFromParent()
         score++
         hundredScore++
+        scheduleOnce("comboHits", delay: 0.01)
         
         return false
     }
@@ -103,6 +126,7 @@ class MainScene: CCNode {
         if ballInScreen == true {
             scheduleOnce("gameOver", delay: 0.2)
         }
+        zombie.removeFromParent()
         
         return false
     }
@@ -112,15 +136,61 @@ class MainScene: CCNode {
         return false
     }
     
+    func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, ball: CCNode!, paddle: CCNode!) -> ObjCBool {
+        
+        scheduleOnce("womboCombos", delay: 0.01)
+        
+        return true
+    }
+    
+    func comboHits() {
+        let pos = ball.position
+        let pad = paddle.position
+        combo++
+        animationManager.runAnimationsForSequenceNamed("comboLabel")
+        ball.position = pos
+        paddle.position = pad
+    }
+    
+    func womboCombos() {
+        //stores position b/c the following animations reset the ball&pad positions
+        let pos = ball.position
+        let pad = paddle.position
+        if combo >= 20 && combo < 30 {
+            animationManager.runAnimationsForSequenceNamed("Mega Kill")
+            println("Mega Kill")
+        } else if combo >= 30 && combo < 50 {
+            animationManager.runAnimationsForSequenceNamed("Killing Spree")
+            println("Killing Spree")
+        } else if combo >= 50 && combo < 70 {
+            animationManager.runAnimationsForSequenceNamed("Rampage")
+            println("Rampage")
+        } else if combo >= 70 && combo < 100 {
+            animationManager.runAnimationsForSequenceNamed("Obliteration")
+            println("Obliteration")
+        } else if combo >= 100 {
+            animationManager.runAnimationsForSequenceNamed("Zombie Genocide")
+            println("Zombie Genocide")
+        }
+        //ball/pad positions are then using stored positions from before
+        ball.position = pos
+        paddle.position = pad
+        combo = 0
+    }
+    
     func gameOver() {
         animationManager.runAnimationsForSequenceNamed("GameOver")
 //        mainMenu = true
         ballInScreen = false
+        buttonPressed = true
+        combo = 0
         gameOverScoreLabel.string = "\(score)"
         
         //highscore code
         let defaults = NSUserDefaults.standardUserDefaults()
         var highscore = defaults.integerForKey("highscore")
+        //set highscore to gamecenter
+        GameCenterInteractor.sharedInstance.saveHighScore(Double(highscore))
         if score > highscore {
             defaults.setInteger(score, forKey: "highscore")
         }
@@ -129,18 +199,26 @@ class MainScene: CCNode {
         var newHighscore = NSUserDefaults.standardUserDefaults().integerForKey("highscore")
         highscoreLabel.string = "\(newHighscore)"
         
-//        iAdHandler.sharedInstance.displayInterstitialAd()
+        //interstitial ad occurence
+        if interstitialAd == 4 {
+            iAdHandler.sharedInstance.displayInterstitialAd()
+            interstitialAd = 0
         }
+    }
     
     func restart() {
         zombies.removeAllChildren()
-        animationManager.runAnimationsForSequenceNamed("Restart")
+        if buttonPressed == true {
+            animationManager.runAnimationsForSequenceNamed("Restart")
+            buttonPressed = false
+        }
 
         ballPush()
         mainMenu = false
         hundredScore = 0
         score = 0
         randomSpawn = 3
+        interstitialAd++
     }
     
     override func onEnter() {
@@ -165,6 +243,13 @@ class MainScene: CCNode {
         }
 //        println(hundredScore)
 //        println(randomSpawn)
+//        println(ball.physicsBody.velocity)
+        
+        //ball particle thingy code - CRUNCH TIME
+        var velX = ball.physicsBody.velocity.x
+        var velY = ball.physicsBody.velocity.y
+        
+        
     }
     
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
@@ -180,4 +265,21 @@ class MainScene: CCNode {
             paddle.positionInPoints.x = touchX
         }
     }
+}
+
+// MARK: Game Center Handling
+extension MainScene: GKGameCenterControllerDelegate {
+    func showLeaderboard() {
+        var viewController = CCDirector.sharedDirector().parentViewController!
+        var gameCenterViewController = GKGameCenterViewController()
+        gameCenterViewController.gameCenterDelegate = self
+        viewController.presentViewController(gameCenterViewController, animated: true, completion: nil)
+    }
+    
+    // Delegate methods
+    func gameCenterViewControllerDidFinish(gameCenterViewController: GKGameCenterViewController!) {
+        gameCenterViewController.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
 }
