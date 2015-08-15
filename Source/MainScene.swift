@@ -43,6 +43,16 @@ class MainScene: CCNode {
         
         animationManager.runAnimationsForSequenceNamed("MainMenu")
         setUpGameCenter()
+        preloadSounds()
+    }
+    
+    func preloadSounds() {
+        //access audio object
+        var hitSound: OALSimpleAudio = OALSimpleAudio.sharedInstance()
+        
+        //preload the audio
+        hitSound.preloadEffect("realisticPunchMarkDiAngelo.mp3")
+
     }
     
     func setUpGameCenter() {
@@ -63,6 +73,16 @@ class MainScene: CCNode {
         ballPush()
         
         iAdHandler.sharedInstance.displayBannerAd()
+    }
+    
+    func settings() {
+        animationManager.runAnimationsForSequenceNamed("Settings")
+    }
+    
+    func settingsBack() { //currently a bit buggy . might get rid of settings button in restart timeline
+        animationManager.runAnimationsForSequenceNamed("SettingsBack")
+//        sleep(1)
+//        animationManager.runAnimationsForSequenceNamed("MainMenu")
     }
     
     func ballPush() {
@@ -115,6 +135,9 @@ class MainScene: CCNode {
         score++
         hundredScore++
         scheduleOnce("comboHits", delay: 0.01)
+        
+        var hitSound: OALSimpleAudio = OALSimpleAudio.sharedInstance()
+        hitSound.playEffect("realisticPunchMarkDiAngelo.mp3")
         
         return false
     }

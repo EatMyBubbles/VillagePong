@@ -53,6 +53,7 @@
 		83B403E31B7D2D7100180CF4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83B403E21B7D2D7100180CF4 /* Images.xcassets */; };
 		83B403E51B7D5EA000180CF4 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83B403E41B7D5EA000180CF4 /* GameKit.framework */; };
 		83B403E71B7D62C600180CF4 /* GameCenterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B403E61B7D62C600180CF4 /* GameCenterInteractor.swift */; };
+		83ED70ED1B7EF242001F5746 /* realisticPunchMarkDiAngelo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 83ED70EC1B7EF242001F5746 /* realisticPunchMarkDiAngelo.mp3 */; };
 		927F61A5196C771E000F43EF /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3517B978D7009739AE /* OpenAL.framework */; };
 		927F61A9196C771E000F43EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3D17B978D7009739AE /* Foundation.framework */; };
 		927F61AA196C771E000F43EF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3F17B978D7009739AE /* CoreGraphics.framework */; };
@@ -190,6 +191,7 @@
 		83B403E21B7D2D7100180CF4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		83B403E41B7D5EA000180CF4 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		83B403E61B7D62C600180CF4 /* GameCenterInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterInteractor.swift; sourceTree = "<group>"; };
+		83ED70EC1B7EF242001F5746 /* realisticPunchMarkDiAngelo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = realisticPunchMarkDiAngelo.mp3; sourceTree = "<group>"; };
 		927F61BF196C771E000F43EF /* VillageDelight Android.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VillageDelight Android.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B71F5907188484E7003F4D28 /* iPad-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old.png"; path = "Icons/iPad-old.png"; sourceTree = "<group>"; };
 		B71F5908188484E7003F4D28 /* iPad-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old@2x.png"; path = "Icons/iPad-old@2x.png"; sourceTree = "<group>"; };
@@ -544,6 +546,7 @@
 			children = (
 				83B403E21B7D2D7100180CF4 /* Images.xcassets */,
 				8308CE5F1B7A74E800DBBBAC /* close.png */,
+				83ED70EC1B7EF242001F5746 /* realisticPunchMarkDiAngelo.mp3 */,
 				7A40366119DDF8C2007B6E8F /* Platforms */,
 				5B12100D197483EE004C1E1D /* res */,
 				B73789911807667A0076A88C /* Icons */,
@@ -768,6 +771,7 @@
 				83B403E31B7D2D7100180CF4 /* Images.xcassets in Resources */,
 				B71F5917188484E7003F4D28 /* iPhone.png in Resources */,
 				B7378975180762440076A88C /* Default-568h@2x.png in Resources */,
+				83ED70ED1B7EF242001F5746 /* realisticPunchMarkDiAngelo.mp3 in Resources */,
 				B71F5918188484E7003F4D28 /* iPhone@2x.png in Resources */,
 				B7378977180762440076A88C /* Default.png in Resources */,
 				B71F5911188484E7003F4D28 /* iPad-old.png in Resources */,
