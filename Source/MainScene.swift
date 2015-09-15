@@ -51,11 +51,11 @@ class MainScene: CCNode {
 //        preloadSounds()
         
         if !defaults.boolForKey(soundEffectsKey) {
-            soundEffectsButtonText.string = "OFF"
+            soundEffectsButtonText.string = "ON"
         }
         
         if !defaults.boolForKey(backgroundMusicKey) {
-            musicButtonText.string = "OFF"
+            musicButtonText.string = "ON"
         }
         
         if defaults.boolForKey(soundEffectsKey) {
@@ -145,6 +145,14 @@ class MainScene: CCNode {
     
     func backToSettings() {
         animationManager.runAnimationsForSequenceNamed("BackToSettings")
+    }
+    
+    func tip() {
+        animationManager.runAnimationsForSequenceNamed("TipsAndTricks")
+    }
+    
+    func tipsToSettings() {
+        animationManager.runAnimationsForSequenceNamed("TipsToSettings")
     }
     
     func backToMainMenu() {
