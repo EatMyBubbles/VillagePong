@@ -49,6 +49,8 @@ class MainScene: CCNode {
         mainMenuAnimation()
         setUpGameCenter()
 //        preloadSounds()
+        backgroundMusicToggle()
+        soundEffectsToggle()
         
         if !defaults.boolForKey(soundEffectsKey) {
             soundEffectsButtonText.string = "ON"
