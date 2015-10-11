@@ -34,6 +34,7 @@ class MainScene: CCNode {
         }
     }
     
+    
     //OALSimpleAudio for sound
     let audio = OALSimpleAudio.sharedInstance()
     let defaults = NSUserDefaults.standardUserDefaults()
@@ -48,28 +49,49 @@ class MainScene: CCNode {
         
         mainMenuAnimation()
         setUpGameCenter()
-//        preloadSounds()
+        
+        println(defaults.boolForKey(backgroundMusicKey))
+        
+        
+        if defaults.boolForKey(soundEffectsKey) == false {
+            defaults.setBool(true, forKey: soundEffectsKey)
+        }
+        else {
+            defaults.setBool(false, forKey: soundEffectsKey)
+        }
+        
+        if defaults.boolForKey(backgroundMusicKey) == false {
+            defaults.setBool(true, forKey: backgroundMusicKey)
+//            musicButtonText.string = "OFF"
+        }
+        else {
+            defaults.setBool(false, forKey: backgroundMusicKey)
+        }
+        
+        println(defaults.boolForKey(backgroundMusicKey))
+        
         backgroundMusicToggle()
         soundEffectsToggle()
+        preloadSounds()
         
-        if !defaults.boolForKey(soundEffectsKey) {
-            soundEffectsButtonText.string = "ON"
-        }
-        
-        if !defaults.boolForKey(backgroundMusicKey) {
-            musicButtonText.string = "ON"
-        }
-        
-        if defaults.boolForKey(soundEffectsKey) {
-            preloadSounds()
-        }
-        
+        println(defaults.boolForKey(backgroundMusicKey))
+//
+//        if defaults.boolForKey(soundEffectsKey) {
+//            defaults.setBool(true, forKey: soundEffectsKey)
+//            preloadSounds()
+//        }
+//        
+//        if defaults.boolForKey(backgroundMusicKey) {
+//            defaults.setBool(true, forKey: backgroundMusicKey)
+//            audio.playBg("BackgroundMusic2.wav", loop: true) //http://www.flashkit.com/loops/Rap/Urban/alley-130626224514.html
+//        }
+
     }
     
     func soundEffectsToggle() {
         var currentState = defaults.boolForKey(soundEffectsKey)
         
-        if currentState {
+        if currentState == true {
             defaults.setBool(false, forKey: soundEffectsKey)
             soundEffectsButtonText.string = "OFF"
         }
@@ -82,7 +104,7 @@ class MainScene: CCNode {
     func backgroundMusicToggle() {
         var currentState = defaults.boolForKey(backgroundMusicKey)
         
-        if currentState {
+        if currentState == true {
             defaults.setBool(false, forKey: backgroundMusicKey)
             musicButtonText.string = "OFF"
             audio.stopEverything()
@@ -90,6 +112,10 @@ class MainScene: CCNode {
         else {
             defaults.setBool(true, forKey: backgroundMusicKey)
             musicButtonText.string = "ON"
+//            audio.stopEverything()
+            
+            audio.playBg("BackgroundMusic2.wav", loop: true) //http://www.flashkit.com/loops/Rap/Urban/alley-130626224514.html
+            
         }
     }
     
@@ -123,10 +149,6 @@ class MainScene: CCNode {
         }
         mainMenu = false
         ballPush()
-        
-        if defaults.boolForKey(backgroundMusicKey) {
-            audio.playBg("BackgroundMusic2.wav", loop: true) //http://www.flashkit.com/loops/Rap/Urban/alley-130626224514.html
-        }
         
         iAdHandler.sharedInstance.displayBannerAd()
     }
@@ -306,7 +328,7 @@ class MainScene: CCNode {
         }
         
         //set highscore
-        var newHighscore = NSUserDefaults.standardUserDefaults().integerForKey("highscore")
+        var newHighscore = defaults.integerForKey("highscore")
         highscoreLabel.string = "\(newHighscore)"
         
         //interstitial ad occurence
