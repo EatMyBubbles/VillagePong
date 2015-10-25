@@ -1,7 +1,7 @@
 import Foundation
 import GameKit
 
-class MainScene: CCNode {
+class MainScene: CCNode, CCPhysicsCollisionDelegate {
     
     weak var ball: CCSprite!
     weak var paddle: CCSprite!
@@ -22,7 +22,7 @@ class MainScene: CCNode {
     var buttonPressed = true
     var randomSpawn = CGFloat(3)
     var hundredScore = 0
-    var interstitialAd = 3
+    var interstitialAd = 0
     var score: Int = 0 {
         didSet {
             scoreLabel.string = "\(score)"
@@ -41,6 +41,8 @@ class MainScene: CCNode {
     let soundEffectsKey = "soundEffectsKey"
     let backgroundMusicKey = "backgroundMusicKey"
     
+    let moosicKey = "moosicKey"
+    
     func didLoadFromCCB() {
 //        multipleTouchEnabled = true
         userInteractionEnabled = true
@@ -50,8 +52,19 @@ class MainScene: CCNode {
         mainMenuAnimation()
         setUpGameCenter()
         
-        println(defaults.boolForKey(backgroundMusicKey))
         
+        //bool values are NO by default; keys need one time activation upon downloading app
+        print(defaults.boolForKey(moosicKey))
+        if defaults.boolForKey(moosicKey) == false {
+            defaults.setBool(true, forKey: backgroundMusicKey)
+            defaults.setBool(true, forKey: soundEffectsKey)
+            //turns this method "off" so it will never be called again so long as the app is still on the users device
+            defaults.setBool(true, forKey: moosicKey)
+        }
+        
+        
+        
+        print(defaults.boolForKey(backgroundMusicKey))
         
         if defaults.boolForKey(soundEffectsKey) == false {
             defaults.setBool(true, forKey: soundEffectsKey)
@@ -60,21 +73,21 @@ class MainScene: CCNode {
             defaults.setBool(false, forKey: soundEffectsKey)
         }
         
-        if defaults.boolForKey(backgroundMusicKey) == false {
-            defaults.setBool(true, forKey: backgroundMusicKey)
+        if defaults.boolForKey(backgroundMusicKey) == true {
+            defaults.setBool(false, forKey: backgroundMusicKey)
 //            musicButtonText.string = "OFF"
         }
         else {
-            defaults.setBool(false, forKey: backgroundMusicKey)
+            defaults.setBool(true, forKey: backgroundMusicKey)
         }
         
-        println(defaults.boolForKey(backgroundMusicKey))
+        print(defaults.boolForKey(backgroundMusicKey))
         
         backgroundMusicToggle()
         soundEffectsToggle()
         preloadSounds()
         
-        println(defaults.boolForKey(backgroundMusicKey))
+        print(defaults.boolForKey(backgroundMusicKey))
 //
 //        if defaults.boolForKey(soundEffectsKey) {
 //            defaults.setBool(true, forKey: soundEffectsKey)
@@ -89,7 +102,7 @@ class MainScene: CCNode {
     }
     
     func soundEffectsToggle() {
-        var currentState = defaults.boolForKey(soundEffectsKey)
+        let currentState = defaults.boolForKey(soundEffectsKey)
         
         if currentState == true {
             defaults.setBool(false, forKey: soundEffectsKey)
@@ -102,7 +115,7 @@ class MainScene: CCNode {
     }
     
     func backgroundMusicToggle() {
-        var currentState = defaults.boolForKey(backgroundMusicKey)
+        let currentState = defaults.boolForKey(backgroundMusicKey)
         
         if currentState == true {
             defaults.setBool(false, forKey: backgroundMusicKey)
@@ -126,7 +139,7 @@ class MainScene: CCNode {
         //preload the audio
         audio.preloadEffect("CRUNCH_sound.mp3")
 //        audio.preloadEffect("realisticPunchMarkDiAngelo.mp3")
-        println("sounds loaded")
+        print("sounds loaded")
     }
     
     func setUpGameCenter() {
@@ -190,8 +203,8 @@ class MainScene: CCNode {
     }
     
     func ballPush() {
-        var pushX = CGFloat(arc4random_uniform(201)) - 100
-        var pushY = CGFloat(200)
+        let pushX = CGFloat(arc4random_uniform(201)) - 100
+        let pushY = CGFloat(200)
         
         ball.physicsBody.velocity.x = pushX
         ball.physicsBody.velocity.y = pushY
@@ -202,10 +215,10 @@ class MainScene: CCNode {
     }
     
     func spawnZombie() {
-        var spawnY = CGFloat(0.8 * height)
-        var xCoor = CGFloat(arc4random_uniform(3))
-        var zombie = CCBReader.load("Zombie") as! Zombie
-        var xSpeed = CGFloat(arc4random() % 2)
+        let spawnY = CGFloat(0.8 * height)
+        let xCoor = CGFloat(arc4random_uniform(3))
+        let zombie = CCBReader.load("Zombie") as! Zombie
+        let xSpeed = CGFloat(arc4random() % 2)
         
         if xCoor == 0 {
             zombie.position.x = 0.2 * width
@@ -290,19 +303,19 @@ class MainScene: CCNode {
         let pad = paddle.position
         if combo >= 20 && combo < 30 {
             animationManager.runAnimationsForSequenceNamed("Mega Kill")
-            println("Mega Kill")
+            print("Mega Kill")
         } else if combo >= 30 && combo < 50 {
             animationManager.runAnimationsForSequenceNamed("Killing Spree")
-            println("Killing Spree")
+            print("Killing Spree")
         } else if combo >= 50 && combo < 70 {
             animationManager.runAnimationsForSequenceNamed("Rampage")
-            println("Rampage")
+            print("Rampage")
         } else if combo >= 70 && combo < 100 {
             animationManager.runAnimationsForSequenceNamed("Obliteration")
-            println("Obliteration")
+            print("Obliteration")
         } else if combo >= 100 {
             animationManager.runAnimationsForSequenceNamed("Zombie Genocide")
-            println("Zombie Genocide")
+            print("Zombie Genocide")
         }
         //ball/pad positions are then using stored positions from before
         ball.position = pos
@@ -320,7 +333,7 @@ class MainScene: CCNode {
         
         //highscore code
         let defaults = NSUserDefaults.standardUserDefaults()
-        var highscore = defaults.integerForKey("highscore")
+        let highscore = defaults.integerForKey("highscore")
         //set highscore to gamecenter
         GameCenterInteractor.sharedInstance.saveHighScore(Double(highscore))
         if score > highscore {
@@ -328,13 +341,13 @@ class MainScene: CCNode {
         }
         
         //set highscore
-        var newHighscore = defaults.integerForKey("highscore")
+        let newHighscore = defaults.integerForKey("highscore")
         highscoreLabel.string = "\(newHighscore)"
         
         //interstitial ad occurence
         if interstitialAd == 4 {
             iAdHandler.sharedInstance.displayInterstitialAd()
-            interstitialAd = 0
+            interstitialAd = 1
         }
     }
     
@@ -356,16 +369,16 @@ class MainScene: CCNode {
     override func onEnter() {
         super.onEnter()
         iAdHandler.sharedInstance.loadAds(bannerPosition: .Top)
-        iAdHandler.sharedInstance.loadInterstitialAd()
+//        iAdHandler.sharedInstance.loadInterstitialAd()
     }
     
     override func update(delta: CCTime) {
         if ball.position.y < 0 && ballInScreen == true {
             gameOver()
-            println("GameOver")
+            print("GameOver")
         }
         
-        var interval = CGFloat(arc4random_uniform(100))
+        let interval = CGFloat(arc4random_uniform(100))
         if interval <= randomSpawn && mainMenu == false {
             spawnZombie()
         }
@@ -378,11 +391,11 @@ class MainScene: CCNode {
 //        println(ball.physicsBody.velocity)
         
         //ball particle thingy code - CRUNCH TIME
-        var velX = ball.physicsBody.velocity.x
-        var velY = ball.physicsBody.velocity.y
-        var theta = atan2(velX, velY)
-        var degrees = (Double (theta) / Double(M_PI)) * 180
-        var rotate = degrees + 180
+        let velX = ball.physicsBody.velocity.x
+        let velY = ball.physicsBody.velocity.y
+        let theta = atan2(velX, velY)
+        let degrees = (Double (theta) / Double(M_PI)) * 180
+        let rotate = degrees + 180
         
         ball.rotation = Float(rotate)
         
@@ -390,14 +403,14 @@ class MainScene: CCNode {
     
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
         if mainMenu == false && ballInScreen == true {
-            var touchX = touch.locationInNode(CCPhysicsNode()!).x
+            let touchX = touch.locationInNode(CCPhysicsNode()!).x
             paddle.positionInPoints.x = touchX
         }
     }
     
     override func touchMoved(touch: CCTouch!, withEvent event: CCTouchEvent!) {
         if mainMenu == false && ballInScreen == true {
-            var touchX = touch.locationInNode(CCPhysicsNode()!).x
+            let touchX = touch.locationInNode(CCPhysicsNode()!).x
             paddle.positionInPoints.x = touchX
         }
     }
@@ -406,14 +419,14 @@ class MainScene: CCNode {
 // MARK: Game Center Handling
 extension MainScene: GKGameCenterControllerDelegate {
     func showLeaderboard() {
-        var viewController = CCDirector.sharedDirector().parentViewController!
-        var gameCenterViewController = GKGameCenterViewController()
+        let viewController = CCDirector.sharedDirector().parentViewController!
+        let gameCenterViewController = GKGameCenterViewController()
         gameCenterViewController.gameCenterDelegate = self
         viewController.presentViewController(gameCenterViewController, animated: true, completion: nil)
     }
     
     // Delegate methods
-    func gameCenterViewControllerDidFinish(gameCenterViewController: GKGameCenterViewController!) {
+    func gameCenterViewControllerDidFinish(gameCenterViewController: GKGameCenterViewController) {
         gameCenterViewController.dismissViewControllerAnimated(true, completion: nil)
     }
     

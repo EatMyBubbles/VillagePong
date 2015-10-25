@@ -640,6 +640,8 @@
 		B77F1B2617B978D7009739AE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = Apportable;
 				TargetAttributes = {
@@ -1169,6 +1171,7 @@
 					"-lz",
 					"-ObjC",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Steven.VillageDelight;
 				PRODUCT_NAME = VillageDelight;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Source/Bridging-Header.h";
@@ -1204,6 +1207,7 @@
 					"-lz",
 					"-ObjC",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Steven.VillageDelight;
 				PRODUCT_NAME = VillageDelight;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Source/Bridging-Header.h";
